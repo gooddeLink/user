@@ -9,13 +9,13 @@ function Done(){
 
     var [style1, styleSet1]=useState({display:'block'});
     var [style2, styleSet2]=useState({display:'none'});
-    var [style3, styleSet3]=useState({display:'none'});
+    //var [style3, styleSet3]=useState({display:'none'});
 
-    var [file, setFile]=useState();//react 내에서 값 바꾸기 위하여 useState 이용해서 변수 선언
-    var [imgUrl, setImgUrl]=useState();
+    // var [file, setFile]=useState();//react 내에서 값 바꾸기 위하여 useState 이용해서 변수 선언
+    // var [imgUrl, setImgUrl]=useState();
 
-    var latestFile=useRef(file);//바뀐 값 사용하기 위함
-    var latestImgUrl=useRef(imgUrl);
+    // var latestFile=useRef(file);//바뀐 값 사용하기 위함
+    // var latestImgUrl=useRef(imgUrl);
 
     var receive=JSON.parse(localStorage.getItem("send"));//localStorage에 저장된 send객체값 가져오기
     var lat, lon, loc;
@@ -50,47 +50,47 @@ function Done(){
             styleSet2({display:'block'});
         }
     },[]);//뒤에 빈 배열 넣어 처음 한번만 실행
-    useEffect(()=>{
-        var take=document.getElementById('takePicture');
-        if (take){
-            take.onchange=function(event){
-                var files=event.target.files;
-                if (files && files.length>0) {
-                    setFile=files[0];
-                    latestFile.current=setFile;//useEffect 밖에서도 사용하기 위함
-                    try{//오류있을수도 있는 문장
-                        var link=window.URL||window.webkitURL;//window.URL 객체 얻기
-                        setImgUrl=link.createObjectURL(latestFile.current);//objectURL 생성
-                        latestImgUrl.current=setImgUrl;//useEffect 밖에서도 사용하기 위함
+    // useEffect(()=>{
+    //     var take=document.getElementById('takePicture');
+    //     if (take){
+    //         take.onchange=function(event){
+    //             var files=event.target.files;
+    //             if (files && files.length>0) {
+    //                 setFile=files[0];
+    //                 latestFile.current=setFile;//useEffect 밖에서도 사용하기 위함
+    //                 try{//오류있을수도 있는 문장
+    //                     var link=window.URL||window.webkitURL;//window.URL 객체 얻기
+    //                     setImgUrl=link.createObjectURL(latestFile.current);//objectURL 생성
+    //                     latestImgUrl.current=setImgUrl;//useEffect 밖에서도 사용하기 위함
 
-                        var show=document.querySelector('.show');
-                        show.src=latestImgUrl.current;
+    //                     var show=document.querySelector('.show');
+    //                     show.src=latestImgUrl.current;
 
-                        styleSet2({display:'none'});
-                        styleSet3({display:'block'});  
+    //                     styleSet2({display:'none'});
+    //                     styleSet3({display:'block'});  
 
-                        var picture=document.querySelector('.picture');
-                        picture.onload=function(){link.revokeObjectURL(imgUrl);}//이미지 띄우고 url 취소하기(메모리 절약 위함)
-                    }
-                    catch(e){//에러 있다면
-                        console.log('error');
-                        try{
-                            var fileReader=new FileReader();//createObject가 안되는 경우
-                            fileReader.onload=function(event){
-                                setImgUrl=event.target.result;//useEffect 밖에서도 사용하기 위함
-                                latestImgUrl.current=setImgUrl;
-                            };
-                            fileReader.readAsDataURL(file);
-                        }
-                        catch(e){
-                            var error=document.getElementById('error');
-                            if(error) error.innerHTML="Neither createObjectURL or FileReader are supported";
-                        }
-                    }
-                }
-            }
-        }
-    });
+    //                     var picture=document.querySelector('.picture');
+    //                     picture.onload=function(){link.revokeObjectURL(imgUrl);}//이미지 띄우고 url 취소하기(메모리 절약 위함)
+    //                 }
+    //                 catch(e){//에러 있다면
+    //                     console.log('error');
+    //                     try{
+    //                         var fileReader=new FileReader();//createObject가 안되는 경우
+    //                         fileReader.onload=function(event){
+    //                             setImgUrl=event.target.result;//useEffect 밖에서도 사용하기 위함
+    //                             latestImgUrl.current=setImgUrl;
+    //                         };
+    //                         fileReader.readAsDataURL(file);
+    //                     }
+    //                     catch(e){
+    //                         var error=document.getElementById('error');
+    //                         if(error) error.innerHTML="Neither createObjectURL or FileReader are supported";
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
+    // });
     function textCheck_done(){//글자수 제한
         var text=document.getElementById('text_done').value;
         var textLen=text.length;
@@ -102,45 +102,71 @@ function Done(){
             document.getElementById('tex_done').focus();
         }
     }
-    function textCheck_img(){//글자수 제한
-        var text=document.getElementById('text_img').value;
-        var textLen=text.length;
+    // function textCheck_img(){//글자수 제한
+    //     var text=document.getElementById('text_img').value;
+    //     var textLen=text.length;
 
-        if(textLen>500){
-            alert('500자 이상 작성할 수 없습니다.');
-            text=text.substr(0, 500);//0에서 500자까지만 인식
-            document.getElementById('text_img').value=text;
-            document.getElementById('text_img').focus();
-        }
-    }
-    function textCheck_cam(){//글자수 제한
-        var text=document.getElementById('text_cam').value;
-        var textLen=text.length;
+    //     if(textLen>500){
+    //         alert('500자 이상 작성할 수 없습니다.');
+    //         text=text.substr(0, 500);//0에서 500자까지만 인식
+    //         document.getElementById('text_img').value=text;
+    //         document.getElementById('text_img').focus();
+    //     }
+    // }
+    // function textCheck_cam(){//글자수 제한
+    //     var text=document.getElementById('text_cam').value;
+    //     var textLen=text.length;
 
-        if(textLen>500){
-            alert('500자 이상 작성할 수 없습니다.');
-            text=text.substr(0, 500);//0에서 500자까지만 인식
-            document.getElementById('text_cam').value=text;
-            document.getElementById('text_cam').focus();
-        }
-    }
+    //     if(textLen>500){
+    //         alert('500자 이상 작성할 수 없습니다.');
+    //         text=text.substr(0, 500);//0에서 500자까지만 인식
+    //         document.getElementById('text_cam').value=text;
+    //         document.getElementById('text_cam').focus();
+    //     }
+    // }
 
 
-    var dataUrl;
-    //blob을 dataUrl로 바꾸고 다른 서버로 정보 전달
-    function blobToDataUrl_axios(){
-        var text=document.getElementById('text');
-        var reader=new FileReader();
-        if (latestFile.current) reader.readAsDataURL(latestFile.current);
-        reader.onload=function(event){
-            dataUrl=event.target.result;
-            if (dataUrl){
-                console.log(text.value);
-                console.log(dataUrl);
+    // var dataUrl;
+    // //blob을 dataUrl로 바꾸고 다른 서버로 정보 전달
+    // function blobToDataUrl_axios(){
+    //     var text=document.getElementById('text_img');
+    //     var reader=new FileReader();
+    //     if (latestFile.current) reader.readAsDataURL(latestFile.current);
+    //     reader.onload=function(event){
+    //         dataUrl=event.target.result;
+    //         if (dataUrl){
+    //             console.log(text.value);
+    //             console.log(dataUrl);
                 
-                axios.post(`https://admin.goodde.kr/call/message/${id}/imgsubmit`, {//정보 전달할 페이지
+    //             axios.post(`${process.env.REACT_APP_goodde}/call/message/${id}/imgsubmit`, {//정보 전달할 페이지
+    //                 text:text.value,
+    //                 dataUrl:dataUrl
+    //             })
+    //             .then((res)=>{//axios.post 성공하면
+    //                 console.log(res);
+    //             })
+    //             .catch((err)=> {//axios.post 에러나면
+    //                 console.log(err);
+    //                 alert(`오류가 발생했습니다.\n${err.message}`);
+    //                 return;
+    //             })
+                
+    //             thanks();
+    //         }
+    //     }
+    // }
+    // function thanks(){
+    //     window.location.href=`/thanks`;
+    // }
+    function text_axios_done(){//axios 써서 서버로 정보 보내기
+        var text=document.getElementById('text_done');
+        if (text){
+            if (flag==='a'){//취약계층 위치신고
+                axios.post(`${process.env.REACT_APP_goodde}/call_loc/message/${id}/locsubmit`, {//정보 전달할 페이지
                     text:text.value,
-                    dataUrl:dataUrl
+                    lat:lat,
+                    lon:lon,
+                    loc:loc
                 })
                 .then((res)=>{//axios.post 성공하면
                     console.log(res);
@@ -150,53 +176,49 @@ function Done(){
                     alert(`오류가 발생했습니다.\n${err.message}`);
                     return;
                 })
-                
-                thanks();
             }
-        }
-    }
-    function thanks(){
-        window.location.href=`/thanks`;
-    }
-    function text_axios_done(){//axios 써서 서버로 정보 보내기
-        var text=document.getElementById('text_done');
-        if (text){
-            axios.post(`https://admin.goodde.kr/call/message/${id}/textsubmit`, {//정보 전달할 페이지
-                text:text.value,
-            })
-            .then((res)=>{//axios.post 성공하면
-                console.log(res);
-            })
-            .catch((err)=> {//axios.post 에러나면
-                console.log(err);
-                alert(`오류가 발생했습니다.\n${err.message}`);
-                return;
-            })
+            else{//재난위험 위치신고
+                axios.post(`${process.env.REACT_APP_goodde}/call_cam/message/${id}/locsubmit`, {//정보 전달할 페이지
+                    text:text.value,
+                    lat:lat,
+                    lon:lon,
+                    loc:loc
+                })
+                .then((res)=>{//axios.post 성공하면
+                    console.log(res);
+                })
+                .catch((err)=> {//axios.post 에러나면
+                    console.log(err);
+                    alert(`오류가 발생했습니다.\n${err.message}`);
+                    return;
+                })
+            }
 
             change();
         }
     }
-    function text_axios_cam(){//axios 써서 서버로 정보 보내기
-        var text=document.getElementById('text_cam');
-        if (text){
-            axios.post(`https://admin.goodde.kr/call/message/${id}/textsubmit`, {//정보 전달할 페이지
-                text:text.value,
-            })
-            .then((res)=>{//axios.post 성공하면
-                console.log(res);
-            })
-            .catch((err)=> {//axios.post 에러나면
-                console.log(err);
-                alert(`오류가 발생했습니다.\n${err.message}`);
-                return;
-            })
+    //서버로 위도, 경도, 주소 전달
+    // function text_axios_cam(){//axios 써서 서버로 정보 보내기
+    //     var text=document.getElementById('text_cam');
+    //     if (text){
+    //         axios.post(`${process.env.REACT_APP_goodde}/call/message/${id}/textsubmit`, {//정보 전달할 페이지
+    //             text:text.value,
+    //         })
+    //         .then((res)=>{//axios.post 성공하면
+    //             console.log(res);
+    //         })
+    //         .catch((err)=> {//axios.post 에러나면
+    //             console.log(err);
+    //             alert(`오류가 발생했습니다.\n${err.message}`);
+    //             return;
+    //         })
 
-            change();
-        }
-    }
-    function done(){
-        window.location.href=`/done/${id}`;
-    }
+    //         change();
+    //     }
+    // }
+    // function done(){
+    //     window.location.href=`/done/${id}`;
+    // }
     function change(){
         if(flag==='a') window.location.href=`/camera/${id}/${flag}`;
         else  window.location.href='/thanks';
@@ -226,18 +248,13 @@ function Done(){
 
                 <button className="mb-2 mr-2 btn-transition btn btn-outline-secondary checkbox camsend" onClick={text_axios_done}>
                     등록</button>
-                {/* <button className="mb-2 mr-2 btn-transition btn btn-outline-secondary checkbox camsend" onClick={change}>
-                    등록</button> */}
                 <button className="mb-2 mr-2 btn-transition btn btn-outline-secondary checkbox camsend" onClick={change}>
                     취소</button> 
 
-            {/* <div className="camera">현재 상황을 사진으로 알리고 싶다면?</div>
-            <input type="file" id="takePicture" name="picture" accept="image/*" />
-            <label htmlFor="takePicture" className="mb-2 mr-2 btn-transition btn btn-outline-secondary checkbox alert">현 상황 알리기</label> */}
         </div>
 
-        <div className="picture" style={style3}>
-            <img src="../picture/camera.png" className="cam" alt="pin" /> {/*img 주소가 /done/picture 로 인식되므로 ../ 삽입*/}
+        {/* <div className="picture" style={style3}>
+            <img src="../picture/camera.png" className="cam" alt="pin" /> img 주소가 /done/picture 로 인식되므로 ../ 삽입
             &nbsp;현재 이미지를 전송할까요?
             <br /><br />
             <div className="boxgroup">
@@ -261,7 +278,7 @@ function Done(){
 
             <button className="mb-2 mr-2 btn-transition btn btn-outline-secondary checkbox camsend" onClick={change}>
                 취소</button>
-        </div>
+        </div> */}
     </>
     );
 }

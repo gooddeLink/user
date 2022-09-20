@@ -79,19 +79,39 @@ function Camera(){
         reader.onload=function(event){
             var dataUrl=event.target.result;
             if (dataUrl){
-                axios.post(`https://admin.goodde.kr/call/message/${id}/imgsubmit`, {//정보 전달할 페이지
-                    text:text.value,
-                    dataUrl:dataUrl
-                })
-                .then((res)=>{//axios.post 성공하면
-                    console.log(res);
-                })
-                .catch((err)=> {//axios.post 에러나면
-                    console.log(err);
-                    alert(`오류가 발생했습니다.\n${err.message}`);
-                    return;
-                })
-                
+                if (flag==='a'){ //취약계층 위치신고
+                    axios.post(`${process.env.REACT_APP_goodde}/call_loc/message/${id}/imgsubmit`, {//정보 전달할 페이지
+                        text:text.value,
+                        dataUrl:dataUrl
+                        
+                        //이미지관련 불편내용 및 사진 전송
+                    })
+                    .then((res)=>{//axios.post 성공하면
+                        console.log(res);
+                    })
+                    .catch((err)=> {//axios.post 에러나면
+                        console.log(err);
+                        alert(`오류가 발생했습니다.\n${err.message}`);
+                        return;
+                    })
+                }
+                else {//재난위험 사진신고
+                    axios.post(`${process.env.REACT_APP_goodde}/call_cam/message/${id}/imgsubmit`, {//정보 전달할 페이지
+                        text:text.value,
+                        dataUrl:dataUrl
+                        
+                        //이미지관련 불편내용 및 사진 전송
+                    })
+                    .then((res)=>{//axios.post 성공하면
+                        console.log(res);
+                    })
+                    .catch((err)=> {//axios.post 에러나면
+                        console.log(err);
+                        alert(`오류가 발생했습니다.\n${err.message}`);
+                        return;
+                    })
+                }
+
                 check();
             }
         }
@@ -116,13 +136,13 @@ function Camera(){
 
     function check(){
         if(flag==='a') window.location.href='/thanks';
-        else window.location.href=`/loc/${id}/${flag}`;
+        else window.location.href=`/loc/${id}/${flag}`; //done.js로
     }
 
     return (
     <>
         <div className="loading" style={style1}>Wait a minutes...</div>
-        <div className="cam_group" style={style2}>
+        <div className="cam_group" style={style2}> {/*취약계층 위치신고*/}
             <div className="buttonbox_cam">
                 <img src="../../picture/camera.png" className="campic" alt="cam mark" /> {/*img 주소가 /camera/a(b)/picture 로 인식되므로 ../ 삽입*/}
                 <div className="takePic">현재 상황을 사진으로<br /> 보낼까요?</div>
@@ -135,7 +155,7 @@ function Camera(){
             </div>
         </div>
 
-        <div className="cam_group" style={style3}>
+        <div className="cam_group" style={style3}> {/*재난위험 사진신고*/}
             <input type="file" id="takePicture" name="picture" accept="image/*" />
             <label htmlFor="takePicture" className="mb-2 mr-2 btn-transition btn btn-outline-secondary checkbox alert">사진 촬영 및 파일 첨부</label>
         </div>

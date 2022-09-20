@@ -16,12 +16,15 @@ function Check(){
         }
     },[]);//뒤에 빈 배열 넣어 처음 한번만 실행
 
-    function home(){
-        window.location.href=`/loc/${id}/a`;
+    //취약계층 위치신고 : a
+    //재난위험 사진신고 : b
+
+    function home(){//취약계층 위치신고
+        window.location.href=`/loc/${id}/a`;//done.js로 이동
     }
 
-    function camera(){
-        window.location.href=`/camera/${id}/b`;
+    function camera(){//재난위험 사진신고
+        window.location.href=`/camera/${id}/b`;//camera.js로 이동
     }
 
     return (
@@ -42,7 +45,7 @@ function Check(){
                     <div className="c_button">취약 계층<br />위치 신고</div>
                     <img src="picture/location.png" className="c_pin" alt="pin mark" /> {/*public 내에 picture 있으므로 picture만 작성*/}
                 </div>
-                {/* <br /> <br /> <br /> <br /> */}
+
                 <div className="buttonbox" onClick={camera}> 
                     <div className="c_button">재난 위험<br />사진 신고</div>
                     <img src="picture/camera.png" className="c_cam" alt="cam mark" /> {/*public 내에 picture 있으므로 picture만 작성*/}

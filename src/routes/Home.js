@@ -98,25 +98,6 @@ function Home(){
         window.location.href=`/search/${id}/${flag}`;
     }
 
-    //서버로 위도, 경도, 주소 전달
-    function sendAddr_axios(){//form태그는 다른 서버로 전송x -> axios는 가능
-        axios.post(`https://admin.goodde.kr/call/message/${id}/locsubmit`, {//정보 전달할 페이지
-            lat:latestLat.current,
-            lon:latestLon.current,
-            loc:latestLoc.current
-        })
-        .then((res)=>{//axios.post 성공하면
-            console.log(res);
-        })
-        .catch((err)=> {//axios.post 오류나면
-            console.log(err);
-            alert(`오류가 발생했습니다.\n${err.message}`);
-            return;
-        })
-
-        window.location.href=`/done/${id}/${flag}`;
-    }
-
     //서비스 이용완료
     function Done(){
         var send={
@@ -126,7 +107,7 @@ function Home(){
         };
         localStorage.setItem("send",JSON.stringify(send));//localStorage에 저장해서 다른 파일에서도 사용할 수 있도록
 
-        sendAddr_axios();//서버로 위도, 경도, 주소 전달
+        window.location.href=`/done/${id}/${flag}`;
     }
 
     function thanks(){
