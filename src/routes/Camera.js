@@ -93,7 +93,12 @@ function Camera(){
                         console.log(err);
                         alert(`오류가 발생했습니다.\n${err.message}`);
                         return;
-                    })
+                    });
+
+                    var send_img={
+                        "img":dataUrl
+                    };
+                    localStorage.setItem("send_img",JSON.stringify(send_img));//localStorage에 저장해서 다른 파일에서도 사용할 수 있도록
                 }
                 else {//재난위험 사진신고
                     axios.post(`${process.env.REACT_APP_goodde}/call_cam/message/${id}/imgsubmit`, {//정보 전달할 페이지
