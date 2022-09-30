@@ -1,5 +1,5 @@
 import "./Check.css";
-import {useState, useEffect, useRef} from "react";
+import {useState, useEffect} from "react";
 import {useParams} from "react-router";//url 변수 저장 위함
 
 function Check(){
