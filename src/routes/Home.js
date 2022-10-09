@@ -1,6 +1,5 @@
 import "./Home.css";
 import {useState, useEffect, useRef} from "react";
-import axios from 'axios';//axios 사용하기 위함
 import {useParams} from "react-router";//url 변수 저장 위함
 
 function Home(){
