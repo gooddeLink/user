@@ -10,26 +10,34 @@
 /* .c_pin{width:200px; margin:30px; margin-top: 80px; float:right;}
 .c_cam{width:200px; margin:10px; float:right; margin-right:40px; margin-top:100px;} */
 
-.c_group{text-decoration: center; margin-top:0;} /*전체적인 페이지*/
+.c_group{
+    text-decoration: center; 
+    margin-top:0;} /*전체적인 페이지*/
 .home{
+    height: 150px;
     display: flex;
     justify-content: center;
     font-family: 'Do Hyeon', sans-serif; 
-    font-size:90px; 
-    padding-top:25px;
+    font-size:75px; 
+    padding-top:35px;
+    /* margin-bottom: -10px; */
 }
 .home_img{
-    margin-top: 15px;
-    width: 90px;
-    height: 90px;
+    margin-top: 13px;
+    width: 80px;
+    height: 80px;
 }
-.line{border:solid 1px #707070;}
+.line{
+    border:solid 1px #909090;
+    /* box-shadow: 0 0 10px 1px #707070; */
+    box-shadow : 0 5px 20px 0 #484848;
+}
 
 /*첫번째 버튼 */
 .c_group_row_first{
     display: flex;
     justify-content: center;
-    margin-bottom: 90px;
+    margin-bottom: 80px;
 }
 .buttonbox_first{
     display: flex;
@@ -104,7 +112,7 @@
 }
 .c_group_sub{
     margin: 30px 0 ;
-    width: 500px;
+    width: 400px;
 }
 
 .c_button_loc{
