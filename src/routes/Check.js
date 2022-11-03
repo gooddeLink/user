@@ -32,7 +32,7 @@ function Check(){
         <div className="loading" style={style1}>GOODDRIVE</div>
         <div className="home">
             &nbsp; 
-            <img src="picture/anyang.jfif" className="" alt="cam mark" />
+            <img src="picture/anyang.jfif" className="home_img" alt="cam mark" />
             &nbsp;안양시</div>
         <hr className="line"/>
         <br /> <br />
@@ -40,35 +40,36 @@ function Check(){
             <div className="c_group_row">
             <img src="picture/subtitle.jfif" className="c_group_sub" />
             </div>
-            <div className="c_group_row">
-                <div className="buttonbox" onClick={home}>
-                    <div className="c_button">취약 계층<br />위치 신고</div>
-                    <img src="picture/location.png" className="c_pin" alt="pin mark" /> {/*public 내에 picture 있으므로 picture만 작성*/}
+            <div className="c_group_row_first">
+                <div className="buttonbox_first"> 
+                    <img src="picture/home.png" className="c_first_img" alt="pin mark" />
+                    <div className="c_button_first">홈페이지 방문</div>
+                    {/* <img src="picture/anyang.jfif" className="c_cam" alt="cam mark" /> public 내에 picture 있으므로 picture만 작성 */}
                 </div>
-
-                <div className="buttonbox" onClick={camera}> 
+                <div className="buttonbox_first">
+                    <img src="picture/phone-call.png" className="c_first_img" alt="pin mark" />
+                    <div className="c_button_first">기관연락처 저장</div>
+                    {/* <img src="picture/free-icon-address-book-1370974.png" className="c_pin" alt="pin mark" /> public 내에 picture 있으므로 picture만 작성 */}
+                </div>
+            </div>
+            <div className="c_group_row">
+                <div className="buttonbox c_button_loc" onClick={home}>
+                    <div className="c_button">취약 이웃<br />위치 신고</div>
+                    <img src="picture/old-man .png" className="c_pin" alt="pin mark" /> {/*public 내에 picture 있으므로 picture만 작성*/}
+                </div>
+                <div className="buttonbox c_button_cam" onClick={camera}> 
                     <div className="c_button">재난 위험<br />사진 신고</div>
-                    <img src="picture/camera.png" className="c_cam" alt="cam mark" /> {/*public 내에 picture 있으므로 picture만 작성*/}
+                    <img src="picture/그룹 151.png" className="c_cam" alt="cam mark" /> {/*public 내에 picture 있으므로 picture만 작성*/}
                 </div>
             </div>
             <div className="c_group_row">
                 <div className="buttonbox">
-                    <div className="c_button">기관연락처<br />번호* 저장</div>
-                    <img src="picture/free-icon-address-book-1370974.png" className="c_pin" alt="pin mark" /> {/*public 내에 picture 있으므로 picture만 작성*/}
+                    <div className="c_button">설문조사</div>
+                    <img src="picture/to-do-list.png" className="c_search" alt="pin mark" /> {/*public 내에 picture 있으므로 picture만 작성*/}
                 </div>
                 <div className="buttonbox"> 
-                    <div className="c_button">안양시<br />홈페이지</div>
-                    <img src="picture/anyang.jfif" className="c_cam" alt="cam mark" /> {/*public 내에 picture 있으므로 picture만 작성*/}
-                </div>
-            </div>
-            <div className="c_group_row">
-                <div className="buttonbox">
-                    <div className="c_button">코로나19<br />생활지원비</div>
-                    <img src="picture/코로나19.jfif" className="c_pin" alt="pin mark" /> {/*public 내에 picture 있으므로 picture만 작성*/}
-                </div>
-                <div className="buttonbox"> 
-                    <div className="c_button">민생경제<br />재난지원금</div>
-                    <img src="picture/재난지원금.png" className="c_mon" alt="cam mark" /> {/*public 내에 picture 있으므로 picture만 작성*/}
+                    <div className="c_button">민생 경제<br />재난지원금<br />신청</div>
+                    <img src="picture/balance_wallet_payment_cash.png" className="c_money" alt="cam mark" /> {/*public 내에 picture 있으므로 picture만 작성*/}
                 </div>
             </div>
         </div>

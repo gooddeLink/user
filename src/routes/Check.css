@@ -11,24 +11,89 @@
 .c_cam{width:200px; margin:10px; float:right; margin-right:40px; margin-top:100px;} */
 
 .c_group{text-decoration: center; margin-top:0;} /*전체적인 페이지*/
-.home{font-family: 'Do Hyeon', sans-serif; font-size:90px; padding-top:25px;}
+.home{
+    display: flex;
+    justify-content: center;
+    font-family: 'Do Hyeon', sans-serif; 
+    font-size:90px; 
+    padding-top:25px;
+}
+.home_img{
+    margin-top: 15px;
+    width: 90px;
+    height: 90px;
+}
 .line{border:solid 1px #707070;}
+
+/*첫번째 버튼 */
+.c_group_row_first{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 90px;
+}
+.buttonbox_first{
+    display: flex;
+    justify-content:center;
+    border: solid 1px #707070;
+    border-radius: 100px;
+    height: 70px;
+    width: 300px;
+    padding: 15px ;
+    margin: 0px 15px;
+}
+.c_first_img{
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+}
+.c_button_first{
+    font-size: 27px;
+    color: #707070;
+}
+
 .buttonbox{
-    border:solid 1px #707070; 
+    /* border:solid 1px #707070;  */
     border-radius: 25px; 
-    width:40%; 
-    height:350px; 
+    width:34%; 
+    height:320px; 
     margin: 0 25px; 
     padding:0px; 
-    box-shadow:5px 10px 40px 10px #a0a0a0;}/*취약계층, 재난위험 버튼 모음*/
+    box-shadow:3px 5px 30px 5px #a0a0a0;
+    color: #484848;
+}/*취약계층, 재난위험 버튼 모음*/
 /*box-shadow 30px은 그림자 흐림, 크기가 10px인 그림자 생성*/
 .c_button{
     float:left; 
     margin:40px 50px 0 50px; 
-    font-size:57px;
+    font-size:45px;
 }/*취약계층, 재난위험 글자*/
-.c_pin{width:100px; margin:30px; margin-top: 0px; float:right;}
-.c_cam{width:100px; margin:10px; float:right; margin-right:40px; margin-top:0;}
+.c_pin{
+    width:75px; 
+    margin:30px; 
+    margin-top: 15px; 
+    float:right;
+}
+.c_search{
+    width:75px; 
+    margin:30px; 
+    margin-top: 70px; 
+    float:right;
+}
+.c_money{
+    width: 80px; 
+    margin: 0 30px;
+    margin-top: -40px;
+    /* margin:30px;  */
+    /* margin-top: 10px;  */
+    float:right;
+}
+.c_cam{
+    width:100px; 
+    margin:10px; 
+    float:right; 
+    margin-right:40px; 
+    margin-top: 20px;
+}
 
 .c_group_row{
     position: relative;
@@ -38,13 +103,15 @@
     margin-bottom: 50px;
 }
 .c_group_sub{
-    width: 600px;
+    margin: 30px 0 ;
+    width: 500px;
 }
 
-.c_mon{
-    width:120px; 
-    margin:10px; 
-    float:right; 
-    margin-right:40px; 
-    margin-top:0;
+.c_button_loc{
+    background-color:  #001CB5;
+    color: #ffffff;
+}
+.c_button_cam{
+    background-color: #FF5900;
+    color: #ffffff;
 }
