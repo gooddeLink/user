@@ -98,7 +98,7 @@ function Done(){
 
     function change(){
         if(flag==='a') window.location.href=`/camera/${id}/${flag}`;
-        else  window.location.href='/thanks';
+        else  window.location.href=`/thanks/${id}`;
     }
 
     return (

@@ -3,10 +3,41 @@
     font-family: 'Gowun Batang', serif;
     font-family: 'Nanum Gothic', sans-serif;
 }
-.loading{/*gooddrive*/
-    font-family: 'Do Hyeon', sans-serif;
-    font-size:150px;
+.loadingBox{/*loading*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+@keyframes coolspin {/*loading*/
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    50% {
+        transform: rotateZ(180deg);
+    }
+
+    100% {
+        transform: rotateZ(180deg);
+    }
+}
+.loading {
     margin-top:600px;
+    display: flex;
+    justify-content: center;
+}
+.circle {/*loading*/
+    margin: 50px;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    background-color: #484848;
+}
+.loading:first-child {/*loading*/
+    animation: coolspin 1s ease-in-out infinite;
+}
+.boxgroup{/*재난사진신고 재난유형, 카메라*/
     text-align:center;
 }
 .locpic{/*현재 위치를 전송하시겠습니까의 마크*/
@@ -16,26 +47,118 @@
     margin-left:70px;
     margin-right:-40px;
 }
-.check{/*현재 위치가 맞습니까?*/
-    font-size:60px;
-    margin-left:60px;
+.chooseType{/*재난유형 필수 글자*/
+    color:#707070; 
+    font-size:35px;
+    margin-left:535px;
 }
-.pin{
-    width:75px;
-    height:80px;
+.typeGroup{/*재난유형 select 전체*/
+    text-align:left;
+    margin:20px;
+    margin-left:90px;
+    position:relative;
+    font-size: 35px;
+    width:250px;
+}
+.base{/*선택된 재난유형*/
+    background-color:#FF5900;
+    width:250px;
+    height:90px;
+    border-radius:20px;
+    padding:20px;
+    color:white;
+    box-shadow: 0px 10px 20px #a5a5a5; /*좌, 아래, 번짐정도*/
+}
+.triangle{/*재난유형 선택 삼각형*/
+    width:50px;
+    margin-left:90px;
+}
+.select {/*재난유형 select ul태그(option 감쌈)*/
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    max-height: 0;
+    list-style: none;/*ul태그의 기본 점 없애기*/
+    padding-left:0px;
+}
+.option {/*재난유형 select li태그(항목)*/
+    background-color:white;
+    color:#484848;
+    width:250px;
+    height:90px;
+    border-radius:20px;
+    padding:20px;
+    margin:10px 0px;
+    box-shadow: 0px 10px 10px #a5a5a5; /*좌, 아래, 번짐정도*/
+}
+.typeGroup.active .select {/*재난유형 select에 active class가 추가된 경우*/
+    max-height: none;
+}
+.check{/*현재 고객님의 위치는*/
+    font-size:40px;
+    text-align:center;
+    /* color:#001CB5; */
+}
+.pin{/*pin 이모티콘*/
+    width:35px;
+    margin:0px 15px;/*위아래, 좌우*/
+    margin-bottom:7px;
+}
+#print{/*위치 테두리*/
+    margin:20px auto;/*위아래, 좌우*/
+    /* border:solid 2px #001CB5; */
+    border:solid 2px;
+    border-radius:100px;
+    width:90%;
+    padding:10px;
+}
+#search{/*주소검색 테두리*/
+    margin:20px 0px;/*위아래, 좌우*/
+    margin-left:50px;
+    margin-bottom:40px;
+    border:solid 2px #484848;
+    border-radius:100px;
+    width:70%;
+    padding:10px;
+    float:left;
+}
+#loadaddrLoc, #loadaddrPic{/*주소검색 text창*/
+    border:none;
+    width:85%;
+}
+.addrconfirm{/*주소 검색 확인*/
+    border:solid 2px #484848;
+    border-radius:100px;
+    padding:10px;
+    width:18%;
+    background:#484848;
+    color:white;
+    margin-top:25px;
+    margin-right:50px;
+    float:right;
 }
 .adjust{/*위치를 조정해주세요*/
     color:red;
-    font-size:50px;
-    margin-left:85px;
+    font-size:30px;
+    text-align:center;
+}
+.write{/*재난 유형, 불편내용접수, 현장 사진 접수*/
+    font-size:40px; 
+    /* color:#001CB5;  */
+    margin-top:-20px; 
+    margin-bottom:10px;
+}
+.choose{/*필수, 선택*/
+    color:#707070; 
+    font-size:35px;
+    margin-left:450px;
 }
 #googleMap{
-    width:90%;
-    height:800px;
+    width:100%;
+    height:600px;
     margin:auto;
-}
-.box{/*전체적인 페이지*/
-    margin-top:200px;
 }
 .detailAddr{/*infowindow(주소정보들)*/
     font-size:40px;
@@ -47,11 +170,80 @@
 .roadAddr{/*도로명주소*/
     margin:10px 0px;
 }
-.checkbox{/*작성할게요, 네 맞습니다 버튼*/
-    margin:10px 50px;
-    font-size:50px;
-    border-radius: 25px;
+.pac-item-query{/*원래 20px, 주소 자동완성 글씨*/
+    font-size:30px;
 }
-.boxgroup{/*버튼 모음*/
+#text{/*불편내용 적는 칸*/
+    border:solid 3px; 
+    border-radius: 25px; 
+    width:800px; 
+    height:250px; 
+    padding:20px;
+    margin-top:0px;
+    font-size:40px;
+}
+#text::placeholder {/*불편내용 적는 칸 속 placeholder*/
+    font-size: 35px;
+    color:#a5a5a5
+}
+#cam {/*cam 사진*/
+    width:200px;
+    margin-right:600px;
+}
+#show1, #show2 {/*등록한 사진*/
+    margin:auto;
+    width:80%;
+    border-radius:25px;
+}
+.alert {/*등록 이후 수정 및 취소...*/
+    font-size: 40px;
+    margin:0px;
+}
+.send {/*등록, 취소 버튼*/
+    width:40%;
+    border-radius: 200px;
+    padding-top:20px;
+    padding-bottom:20px;
+    font-size:45px;
+    margin:0px 20px;
+    border:none;
+    box-shadow: 0px 10px 20px #a5a5a5; /*좌, 아래, 번짐정도*/
+}
+.submit {/*등록 버튼*/
+    color:white;
+}
+.cancel{/*취소 버튼*/
+    background-color: white;
+}
+.modalWrapper {/*신고접수가 등록되었습니다 모달 다 감싸는 부분*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.6); /*배경 뿌옇게*/
+    display: flex;
+    align-items: center; /*위아래로 이동 display:flex일 경우에*/
+    justify-content: center; /*좌우로 이동 display:flex일 경우에*/
+}
+#modal {/*신고접수가 등록되었습니다*/
+    border-radius: 30px;
+    width: 800px;
+    height:400px;
+}
+.modalText{/*신고접수가 등록되었습니다 글자*/
     text-align:center;
+    padding:100px;
+    border-bottom:solid beige 5px;
+    color:white;
+    font-size:40px;
+}
+.closeWrapper{/*신고접수가 등록되었습니다 확인 버튼*/
+    text-align:center;
+}
+.closeModal{/*신고접수가 등록되었습니다 확인 버튼 글자*/
+    border:none;
+    font-size:50px;
+    color:white;
+    padding:25px;
 }

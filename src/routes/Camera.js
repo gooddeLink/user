@@ -29,12 +29,12 @@ function Camera(){
     },[]);//뒤에 빈 배열 넣어 처음 한번만 실행
 
     useEffect(()=>{
-        var take=document.getElementById('takePicture');
+        var take=document.getElementById('takePicture');//입력한 사진
         if (take){
             take.onchange=function(event){
                 var files=event.target.files;
                 if (files && files.length>0) {
-                    setFile=files[0];
+                    setFile=files[0];//사진
                     latestFile.current=setFile;//useEffect 밖에서도 사용하기 위함
                     try{//오류있을수도 있는 문장
                         var link=window.URL||window.webkitURL;//window.URL 객체 얻기
@@ -42,11 +42,11 @@ function Camera(){
                         latestImgUrl.current=setImgUrl;//useEffect 밖에서도 사용하기 위함
 
                         var show=document.querySelector('.show');
-                        show.src=latestImgUrl.current;
+                        show.src=latestImgUrl.current;//사진 주소 설정
 
                         styleSet2({display:'none'});
                         styleSet3({display:'none'});  
-                        styleSet4({display:'block'}); 
+                        styleSet4({display:'block'});//사진전송창 보이게
 
                         var picture=document.querySelector('.picture');
                         picture.onload=function(){link.revokeObjectURL(imgUrl);}//이미지 띄우고 url 취소하기(메모리 절약 위함)
@@ -95,10 +95,10 @@ function Camera(){
                         return;
                     });
 
-                    var send_img={
-                        "img":dataUrl
-                    };
-                    localStorage.setItem("send_img",JSON.stringify(send_img));//localStorage에 저장해서 다른 파일에서도 사용할 수 있도록
+                    // var send_img={
+                    //     "img":dataUrl
+                    // };
+                    // localStorage.setItem("send_img",JSON.stringify(send_img));//localStorage에 저장해서 다른 파일에서도 사용할 수 있도록
                 }
                 else {//재난위험 사진신고
                     axios.post(`${process.env.REACT_APP_goodde}/call_cam/message/${id}/imgsubmit`, {//정보 전달할 페이지
@@ -140,7 +140,7 @@ function Camera(){
     }
 
     function check(){
-        if(flag==='a') window.location.href='/thanks';
+        if(flag==='a') window.location.href=`/thanks/${id}`;
         else window.location.href=`/loc/${id}/${flag}`; //done.js로
     }
 

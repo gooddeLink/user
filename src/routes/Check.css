@@ -1,45 +1,77 @@
 /*index.html에 모든 css파일 적용되므로 다른 파일에 동일하게 적혀있다면 지워도 됨(이름 바꿔서 중복 방지하기)*/
-/* .c_group{text-decoration: center; margin-top:15%;} 전체적인 페이지 */
-/* .home{font-family: 'Do Hyeon', sans-serif; font-size:90px; padding-top:25px;}
-.line{border:solid 1px #707070;}
-.buttonbox{border:solid 1px #707070; border-radius: 25px; width:75%; height:350px; margin:auto; padding:0px; box-shadow:5px 10px 40px 10px #a0a0a0;} */
-/*취약계층, 재난위험 버튼 모음*/
-/*box-shadow 30px은 그림자 흐림, 크기가 10px인 그림자 생성*/
-/* .c_button{float:left; margin:50px; font-size:60px;} */
-/*취약계층, 재난위험 글자*/
-/* .c_pin{width:200px; margin:30px; margin-top: 80px; float:right;}
-.c_cam{width:200px; margin:10px; float:right; margin-right:40px; margin-top:100px;} */
 
-.c_group{
-    text-decoration: center; 
-    margin-top:0;} /*전체적인 페이지*/
-.home{
+.loadingBox{/*loading*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+@keyframes coolspin {/*loading*/
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    50% {
+        transform: rotateZ(180deg);
+    }
+
+    100% {
+        transform: rotateZ(180deg);
+    }
+}
+.loading {
+    margin-top:600px;
+    display: flex;
+    justify-content: center;
+}
+.circle {/*loading*/
+    margin: 50px;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    background-color: #484848;
+}
+.loading:first-child {/*loading*/
+    animation: coolspin 1s ease-in-out infinite;
+}
+.header{ /*헤더 안양시 문구*/
     height: 150px;
     display: flex;
     justify-content: center;
-    font-family: 'Do Hyeon', sans-serif; 
     font-size:75px; 
     padding-top:35px;
     /* margin-bottom: -10px; */
 }
-.home_img{
+.home_img{ /*헤더 안양시 로고*/
     margin-top: 13px;
     width: 80px;
     height: 80px;
 }
-.line{
+.line{/*헤더 라인*/
     border:solid 1px #909090;
-    /* box-shadow: 0 0 10px 1px #707070; */
-    box-shadow : 0 5px 20px 0 #484848;
+    box-shadow : 0px 5px 10px #484848;/*좌, 아래, 테두리흐려짐, 번짐정도*/
 }
-
-/*첫번째 버튼 */
-.c_group_row_first{
+.c_group{/*전체적인 페이지*/
+    text-decoration: center; 
+    margin-top:0;
+}
+.c_group_row{ /*전체적인 페이지 중 가운데 정렬*/
+    position: relative;
+    display: flex;
+    align-items: center;/*세로 가운데 정렬*/
+    justify-content: center;/*가로 가운데 정렬*/
+    margin-bottom: 50px;
+}
+.c_group_sub{/*안양시 로고*/
+    margin: 30px 0px ;
+    width: 400px;
+}
+.c_group_row_first{/*홈페이지 방문, 기관연락처 저장 전체*/
     display: flex;
     justify-content: center;
     margin-bottom: 80px;
 }
-.buttonbox_first{
+.buttonbox_first{/*홈페이지 방문, 기관연락처 저장*/
     display: flex;
     justify-content:center;
     border: solid 1px #707070;
@@ -49,77 +81,61 @@
     padding: 15px ;
     margin: 0px 15px;
 }
-.c_first_img{
+.c_first_img{/*홈페이지 방문, 기관연락처 저장 이미지*/
     width: 40px;
     height: 40px;
     margin-right: 5px;
 }
-.c_button_first{
+.c_button_first{/*홈페이지 방문, 기관연락처 저장 문구*/
     font-size: 27px;
     color: #707070;
 }
-
-.buttonbox{
-    /* border:solid 1px #707070;  */
+.buttonbox{/*취약이웃, 재난위험 버튼 모음*/
     border-radius: 25px; 
     width:34%; 
     height:320px; 
     margin: 0 25px; 
     padding:0px; 
-    box-shadow:3px 5px 30px 5px #a0a0a0;
+    box-shadow:3px 5px 30px 5px #a0a0a0;/*box-shadow 30px은 그림자 흐림, 크기가 5px인 그림자 생성*/
     color: #484848;
-}/*취약계층, 재난위험 버튼 모음*/
-/*box-shadow 30px은 그림자 흐림, 크기가 10px인 그림자 생성*/
-.c_button{
+}
+.c_button_loc{/*취약이웃*/
+    background-color:  #001CB5;
+    color: #ffffff;
+}
+.c_button_cam{/*재난위험*/
+    background-color: #FF5900;
+    color: #ffffff;
+}
+.c_button{/*취약이웃, 재난위험 글자*/
     float:left; 
     margin:40px 50px 0 50px; 
     font-size:45px;
-}/*취약계층, 재난위험 글자*/
-.c_pin{
+}
+.c_loc{/*취약이웃 이미지*/
     width:75px; 
     margin:30px; 
     margin-top: 15px; 
     float:right;
 }
-.c_search{
-    width:75px; 
-    margin:30px; 
-    margin-top: 70px; 
-    float:right;
-}
-.c_money{
-    width: 80px; 
-    margin: 0 30px;
-    margin-top: -40px;
-    /* margin:30px;  */
-    /* margin-top: 10px;  */
-    float:right;
-}
-.c_cam{
+.c_cam{/*재난위험 이미지*/
     width:100px; 
     margin:10px; 
     float:right; 
     margin-right:40px; 
     margin-top: 20px;
 }
-
-.c_group_row{
-    position: relative;
-    display: flex;
-    align-items: center;/*세로 가운데 정렬*/
-    justify-content: center;/*가로 가운데 정렬*/
-    margin-bottom: 50px;
+.c_search{/*설문조사*/
+    width:75px; 
+    margin:30px; 
+    margin-top: 70px; 
+    float:right;
 }
-.c_group_sub{
-    margin: 30px 0 ;
-    width: 400px;
-}
-
-.c_button_loc{
-    background-color:  #001CB5;
-    color: #ffffff;
-}
-.c_button_cam{
-    background-color: #FF5900;
-    color: #ffffff;
+.c_money{/*민생경제*/
+    width: 80px; 
+    margin: 0 30px;
+    margin-top: -40px;
+    /* margin:30px;  */
+    /* margin-top: 10px;  */
+    float:right;
 }
