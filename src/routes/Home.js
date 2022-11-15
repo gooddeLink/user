@@ -376,7 +376,7 @@ function Home(){
 
         <div className="boxgroup" style={styleCamHead}> {/*재난유형 사진신고*/}
             <div className="write" style={styleColor}>
-                재난 유형<span className="chooseType" style={{color:'#3ac47d'}}>(필수*)</span>
+                재난 유형<span className="chooseType" style={{color:'#3ac47d'}}>(*필수)</span>
             </div>
             <div className="typeGroup" onClick={Select}>
                 <div className="base">
@@ -387,7 +387,7 @@ function Home(){
                     <li className="option" onClick={optionSelect} value="0">수해</li>
                     <li className="option" onClick={optionSelect} value="1">산불</li>
                     <li className="option" onClick={optionSelect} value="2">교통사고</li>
-                    <li className="option" onClick={optionSelect} value="3">재해</li>
+                    <li className="option" onClick={optionSelect} value="3">지진</li>
                     <li className="option" onClick={optionSelect} value="4">기타</li>
                 </ul>
             </div>
@@ -397,7 +397,7 @@ function Home(){
             {/* 취약 이웃 위치 신고 - camera1 */}
             <div style={styleCam1}>
                 <div className="write" style={styleColor}>
-                    현장 사진 접수<span className="choose" style={{color:'#3ac47d'}}>(필수*)</span>
+                    현장 사진 접수<span className="choose" style={{color:'#3ac47d'}}>(*필수)</span>
                 </div>
                 <input type="file" id="takePicture" name="picture" accept="image/*" style={{display:'none'}}/>
                 <label htmlFor="takePicture"> {/*input태그 이미지로 받기 위함*/}
