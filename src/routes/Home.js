@@ -394,13 +394,13 @@ function Home(){
 
             <br /><br /><br /><br />
 
-            {/* 취약 이웃 위치 신고 - camera1 */}
+            {/* 취약 이웃 위치 신고 - camera1
             <div style={styleCam1}>
                 <div className="write" style={styleColor}>
                     현장 사진 접수<span className="choose" style={{color:'#3ac47d'}}>(*필수)</span>
                 </div>
                 <input type="file" id="takePicture" name="picture" accept="image/*" style={{display:'none'}}/>
-                <label htmlFor="takePicture"> {/*input태그 이미지로 받기 위함*/}
+                <label htmlFor="takePicture"> input태그 이미지로 받기 위함
                     <img src="../../picture/orangecam.png" id="cam" alt="cam picture" onClick={Show} style={styleCamImg1}/>
                 </label>
                 <div style={styleImgShow1}>
@@ -409,7 +409,7 @@ function Home(){
                     <div className="adjust">*얼굴은 모자이크 처리됩니다.</div>
                 </div>
             </div>
-            <br /><br /><br />
+            <br /><br /><br />*/}
         </div>
 
         <div className="box" style={styleMap}> {/*위치, 지도, 불편내용 접수, 등록버튼*/}
@@ -435,6 +435,24 @@ function Home(){
                 &nbsp;&nbsp;&nbsp;&nbsp;*위치가 틀릴 경우 주소를 입력 또는 지도에서 위치를 조정해주세요.
             </div>
             <br /><br /><br /><br />
+
+            {/* 재난 위험 사진 신고 - camera1 */}
+            <div className="boxgroup" style={styleCam1}>
+                <div className="write" style={styleColor}>
+                    현장 사진 접수<span className="choose" style={{color:'#3ac47d'}}>(*필수)</span>
+                </div>
+                <input type="file" id="takePicture" name="picture" accept="image/*" style={{display:'none'}}/>
+                <label htmlFor="takePicture"> {/*input태그 이미지로 받기 위함*/}
+                    <img src="../../picture/orangecam.png" id="cam" alt="cam picture" onClick={Show} style={styleCamImg1}/>
+                </label>
+                <div style={styleImgShow1}>
+                    <img id="show1" />
+                    <br /> <br />
+                    <div className="adjust">*얼굴은 모자이크 처리됩니다.</div>
+                </div>
+                <br /><br /><br /><br />
+            </div>
+
             <div className="boxgroup">
                 <span style={styleCam2}>
                     <div className="write" style={styleColor}>
@@ -449,8 +467,8 @@ function Home(){
                 <textarea rows="10" id="text" name="text" onKeyUp={textCheck} placeholder="불편 내용을 입력해주세요." style={styleBorder}></textarea>
                 <br /><br /><br /><br /><br />
 
-                {/* 재난 위험 사진 신고 - camera2 */}
-                <div style={styleCam2}>
+                {/* 취약 이웃 위치 신고 - camera2 */}
+                <div className="boxgroup" style={styleCam2}>
                     <div className="write" style={styleColor}>
                         현장 사진 접수<span className="choose">(선택)</span>
                     </div>
