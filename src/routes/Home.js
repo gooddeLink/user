@@ -355,7 +355,7 @@ function Home(){
     }
 
     function imgPost(){
-        axios.post(`http://127.0.0.1:5000/${id}/locimgsubmit`, {//정보 전달할 페이지-ai
+        axios.post(`http://${process.env.REACT_APP_ai}/${id}/locimgsubmit`, {//정보 전달할 페이지-ai
             img:latestDataUrl.current
         })
         .then((res)=>{//axios.post 성공하면
@@ -398,22 +398,6 @@ function Home(){
 
             <br /><br /><br /><br />
 
-            {/* 취약 이웃 위치 신고 - camera1
-            <div style={styleCam1}>
-                <div className="write" style={styleColor}>
-                    현장 사진 접수<span className="choose" style={{color:'#3ac47d'}}>(*필수)</span>
-                </div>
-                <input type="file" id="takePicture" name="picture" accept="image/*" style={{display:'none'}}/>
-                <label htmlFor="takePicture"> input태그 이미지로 받기 위함
-                    <img src="../../picture/orangecam.png" id="cam" alt="cam picture" onClick={Show} style={styleCamImg1}/>
-                </label>
-                <div style={styleImgShow1}>
-                    <img id="show1" />
-                    <br /> <br />
-                    <div className="adjust">*얼굴은 모자이크 처리됩니다.</div>
-                </div>
-            </div>
-            <br /><br /><br />*/}
         </div>
 
         <div className="box" style={styleMap}> {/*위치, 지도, 불편내용 접수, 등록버튼*/}
