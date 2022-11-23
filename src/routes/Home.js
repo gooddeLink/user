@@ -326,6 +326,7 @@ function Home(){
             })
             .then((res)=>{//axios.post 성공하면
                 console.log(res);
+                imgPost();
             })
             .catch((err)=> {//axios.post 에러나면
                 console.log(err);
@@ -343,6 +344,7 @@ function Home(){
             })
             .then((res)=>{//axios.post 성공하면
                 console.log(res);
+                imgPost();
             })
             .catch((err)=> {//axios.post 에러나면
                 console.log(err);
@@ -350,7 +352,9 @@ function Home(){
                 return;
             });
         }
+    }
 
+    function imgPost(){
         axios.post(`http://127.0.0.1:5000/${id}/locimgsubmit`, {//정보 전달할 페이지-ai
             img:latestDataUrl.current
         })
