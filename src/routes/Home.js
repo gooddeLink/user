@@ -335,7 +335,7 @@ function Home(){
             });
         }
         else{
-            axios.post(`${process.env.REACT_APP_goodde}/call_loc/${id}/submit`, {//정보 전달할 페이지-admin
+            axios.post(`${process.env.REACT_APP_goodde}/call_cam/${id}/submit`, {//정보 전달할 페이지-admin
                 type:latestType.current,//유형번호
                 text:latestMsg.current,//불편내용
                 lat:latestLat.current,
