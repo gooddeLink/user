@@ -307,6 +307,20 @@ function Home(){
         else styleSetSearchPic({display:'block'});
     }
 
+    function imgPost(){
+        axios.post(`${process.env.REACT_APP_ai}/${id}/locimgsubmit`, {//정보 전달할 페이지-ai
+            img:latestDataUrl.current
+        })
+        .then((res)=>{//axios.post 성공하면
+            console.log(res);
+        })
+        .catch((err)=> {//axios.post 에러나면
+            console.log(err);
+            alert(`오류가 발생했습니다.\n${err.message}`);
+            return;
+        });
+    }
+
     //서비스 이용완료
     function Finish(){
         if(flag==='b'){//재난 유형, 현장 사진 접수 입력 안했다면 alert
@@ -326,7 +340,7 @@ function Home(){
             })
             .then((res)=>{//axios.post 성공하면
                 console.log(res);
-                imgPost();
+                //imgPost();
             })
             .catch((err)=> {//axios.post 에러나면
                 console.log(err);
@@ -344,7 +358,7 @@ function Home(){
             })
             .then((res)=>{//axios.post 성공하면
                 console.log(res);
-                imgPost();
+                //imgPost();
             })
             .catch((err)=> {//axios.post 에러나면
                 console.log(err);
@@ -352,21 +366,9 @@ function Home(){
                 return;
             });
         }
+        imgPost();
     }
 
-    function imgPost(){
-        axios.post(`http://${process.env.REACT_APP_ai}/${id}/locimgsubmit`, {//정보 전달할 페이지-ai
-            img:latestDataUrl.current
-        })
-        .then((res)=>{//axios.post 성공하면
-            console.log(res);
-        })
-        .catch((err)=> {//axios.post 에러나면
-            console.log(err);
-            alert(`오류가 발생했습니다.\n${err.message}`);
-            return;
-        });
-    }
 
     return (
     <>
