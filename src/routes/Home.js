@@ -7,11 +7,13 @@ function Home(){
     const {id, flag} = useParams();//id라는 url 변수를 저장
     const google=window.google;//react에서 google 사용하기 위함
 
+    //지도 관련
     var [lat, setLat]=useState();//useEffect 안에서도 사용하기 위하여 useState 이용해서 변수 선언
     var [lon, setLon]=useState();
     var [loc, setLoc]=useState();
     var [map, setMap]=useState();
     var [marker, setMarker]=useState();
+    var [myMarker, setMyMarker]=useState();
     var [geocoder, setGeocoder]=useState(); 
     var [msg, setMsg]=useState();
     var [type, setType]=useState();
@@ -21,10 +23,12 @@ function Home(){
     var latestLoc=useRef(loc);
     var latestMap=useRef(map);
     var latestMarker=useRef(marker);
+    var latestMyMarker=useRef(myMarker);
     var latestGeocoder=useRef(geocoder);
     var latestMsg=useRef(msg);
     var latestType=useRef(type);
 
+    //ui 관련
     var [styleLoading, styleSetLoading]=useState({display:'block'});
     var [styleCamHead, styleSetCamHead]=useState({display:'none'});
     var [styleMap, styleSetMap]=useState({display:'none'});
@@ -42,6 +46,7 @@ function Home(){
     var [styleCam1, styleSetCam1]=useState({display:'none'});
     var [styleCam2, styleSetCam2]=useState({display:'none'});
 
+    //file 관련
     var [file, setFile]=useState();//react 내에서 값 바꾸기 위하여 useState 이용해서 변수 선언
     var [imgBlob, setImgBlob]=useState();
     var [dataUrl, setDataUrl]=useState();
@@ -78,20 +83,22 @@ function Home(){
 
                 //주소 자동완성기능
                 if(flag==='a'){
-                    var myIcon = new google.maps.MarkerImage("../../picture/pin.png", null, null, null, new google.maps.Size(66,88));
+                    setMyMarker = new google.maps.MarkerImage("../../picture/pin.png", null, null, null, new google.maps.Size(66,88));
+                    latestMyMarker.current=setMyMarker;
                     var autocomplete = new google.maps.places.Autocomplete(document.getElementById('loadaddrLoc'), {
                         types: ['geocode']
                     });
                 }
                 else{
-                    var myIcon = new google.maps.MarkerImage("../../picture/orangepin.png", null, null, null, new google.maps.Size(66,88));
+                    setMyMarker = new google.maps.MarkerImage("../../picture/orangepin.png", null, null, null, new google.maps.Size(66,88));
+                    latestMyMarker.current=setMyMarker;
                     var autocomplete = new google.maps.places.Autocomplete(document.getElementById('loadaddrPic'), {
                         types: ['geocode']
                     });
                 }
                 autocomplete.addListener('place_changed');
 
-                setMarker = new google.maps.Marker({position: {lat: setLat, lng: setLon}, map: latestMap.current, icon: myIcon});
+                setMarker = new google.maps.Marker({position: {lat: setLat, lng: setLon}, map: latestMap.current, icon: latestMyMarker.current});
                 //icon 항목은 기존의 marker 이미지 변경
                 latestMarker.current=setMarker;
 
@@ -99,14 +106,14 @@ function Home(){
                 styleSetMap({display:'block'});//지도가 로딩되면 홈페이지 나타나도록
 
                 if(flag==='a'){
-                    styleSetMap({marginTop:'200px'});//margin-top 대신 marginTop
+                    styleSetMap({marginTop:'100px'});//margin-top 대신 marginTop
                     styleSetCam2({display:'block'});//카메라기능 지도 뒤에 나타나도록
                     styleSetBackColor({backgroundColor:'#001CB5'});
                 }
 
                 if(flag==='b'){
                     styleSetColor({color:'#FF5900'});
-                    styleSetCamHead({display:'block', marginTop:'200px'});//b이면 style2 보이게
+                    styleSetCamHead({display:'block', marginTop:'100px'});//b이면 style2 보이게
                     styleSetCam1({display:'block'});//카메라기능 지도 앞에 나타나도록
                     styleSetBackColor({backgroundColor:'#FF5900'});
                     styleSetBorder({borderColor:'#FF5900'});
@@ -117,7 +124,7 @@ function Home(){
                 //클릭하면 마커 변화
                 google.maps.event.addListener(latestMap.current, 'click', function(event){
                     latestMarker.current.setMap(null);//마커 하나만 뜨도록 기존것 없애주기
-                    latestMarker.current=new google.maps.Marker({position: {lat: event.latLng.lat(), lng: event.latLng.lng()}, map: latestMap.current, icon: myIcon});
+                    latestMarker.current=new google.maps.Marker({position: {lat: event.latLng.lat(), lng: event.latLng.lng()}, map: latestMap.current, icon: latestMyMarker.current});
                     latlon2addr(event.latLng.lat(),event.latLng.lng(),latestMarker.current);//위도경도를 주소로 변환
                     latestMap.current.setCenter(latestMarker.current.getPosition());//마커가 가운데 위치하도록
                     latestMarker.current.setMap(latestMap.current);
@@ -264,7 +271,8 @@ function Home(){
                 resultMap.setZoom(18);
                 latestMarker.current=new google.maps.Marker({
                     map:resultMap,
-                    position:result[0].geometry.location
+                    position:result[0].geometry.location,
+                    icon:latestMyMarker.current
                 });
 
                 setLat=result[0].geometry.location.lat();
@@ -300,7 +308,6 @@ function Home(){
 
     //주소검색 실행
     function Search(){
-        // window.location.href=`/search/${id}/${flag}`;
         styleSetColor({color:'#484848'});
         styleSetLoc({display:'none'});
         if(flag==='a') styleSetSearchLoc({display:'block'});
@@ -326,7 +333,6 @@ function Home(){
             })
             .then((res)=>{//axios.post 성공하면
                 console.log(res);
-                imgPost();
             })
             .catch((err)=> {//axios.post 에러나면
                 console.log(err);
@@ -344,7 +350,6 @@ function Home(){
             })
             .then((res)=>{//axios.post 성공하면
                 console.log(res);
-                imgPost();
             })
             .catch((err)=> {//axios.post 에러나면
                 console.log(err);
@@ -352,6 +357,8 @@ function Home(){
                 return;
             });
         }
+
+        imgPost();
     }
 
     function imgPost(){
@@ -396,7 +403,7 @@ function Home(){
                 </ul>
             </div>
 
-            <br /><br /><br /><br />
+            <br /><br />
 
         </div>
 
@@ -430,7 +437,7 @@ function Home(){
                     현장 사진 접수<span className="choose" style={{color:'#3ac47d'}}>(*필수)</span>
                 </div>
                 <input type="file" id="takePicture" name="picture" accept="image/*" style={{display:'none'}}/>
-                <label htmlFor="takePicture"> {/*input태그 이미지로 받기 위함*/}
+                <label htmlFor="takePicture" className="campic"> {/*input태그 이미지로 받기 위함*/}
                     <img src="../../picture/orangecam.png" id="cam" alt="cam picture" onClick={Show} style={styleCamImg1}/>
                 </label>
                 <div style={styleImgShow1}>
@@ -461,7 +468,7 @@ function Home(){
                         현장 사진 접수<span className="choose">(선택)</span>
                     </div>
                     <input type="file" id="takePicture" name="picture" accept="image/*" style={{display:'none'}}/>
-                    <label htmlFor="takePicture"> {/*input태그 이미지로 받기 위함*/}
+                    <label htmlFor="takePicture" className="campic"> {/*input태그 이미지로 받기 위함*/}
                         <img src="../../picture/cam.png" id="cam" alt="cam picture" onClick={Show} style={styleCamImg2}/>
                     </label>
                     <div style={styleImgShow2}>

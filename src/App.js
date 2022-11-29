@@ -10,6 +10,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/loc_cam/:id/:flag" element={<Home />}></Route> {/*:는 뒤에 변수가 옴, useParams를 이용해 id(변수) 값 설정(Search에서) */}
+        <Route path="/call_cam/:id/:flag" element={<Home />}></Route> {/*:는 뒤에 변수가 옴, useParams를 이용해 id(변수) 값 설정(Search에서) */}
+
         <Route path="/:id" element={<Check />}></Route>
       </Routes>
     </BrowserRouter>

@@ -25,7 +25,7 @@ function Check(){
     }
 
     function camera(){//재난위험 사진신고
-        window.location.href=`/loc_cam/${id}/b`;//camera.js로 이동
+        window.location.href=`/call_cam/${id}/b`;//camera.js로 이동
     }
 
     return (
