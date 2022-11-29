@@ -195,6 +195,13 @@ function Home(){
         document.querySelector(".base").innerHTML = latestSelectedValue.current;//선택한 항목 글자가 나타나게 함
     }
 
+    //재난유형 option 기타 선택했을 때
+    function optionAlert(event){
+
+        alert('자연재난 혹은 사회재난을 선택해주세요.');
+        document.querySelector(".base").innerHTML = '재선택';//선택 글자가 뜨게 함
+    }
+
     //카메라 실행
     function Show(){
         var picture=document.getElementById('takePicture');
@@ -400,7 +407,9 @@ function Home(){
                     <li className="option" onClick={optionSelect} value="1">산불</li>
                     <li className="option" onClick={optionSelect} value="2">교통사고</li>
                     <li className="option" onClick={optionSelect} value="3">지진</li>
-                    <li className="option" onClick={optionSelect} value="4">기타</li>
+                    <li className="option etc" onClick={optionAlert}  value="-1">---기타---&nbsp;&nbsp;</li>
+                    <li className="option" onClick={optionSelect} value="4">자연재난</li>
+                    <li className="option" onClick={optionSelect} value="5">사회재난</li>
                 </ul>
             </div>
 

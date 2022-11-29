@@ -94,6 +94,10 @@
     margin:10px 0px;
     box-shadow: 0px 10px 10px #a5a5a5; /*좌, 아래, 번짐정도*/
 }
+.etc {/*재난유형 select li태그 중 기타*/
+    background:#a5a5a5;
+    text-align:center;
+}
 .typeGroup.active .select {/*재난유형 select에 active class가 추가된 경우*/
     max-height: none;
 }
