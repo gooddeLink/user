@@ -100,11 +100,11 @@
     color: #484848;
 }
 .c_button_loc{/*취약이웃*/
-    background-color:  #001CB5;
+    background: linear-gradient(-45deg, #001276, #001CB5); /*두번째 색이 왼쪽 위, 첫번째 색이 오른쪽 아래로 그라데이션*/
     color: #ffffff;
 }
 .c_button_cam{/*재난위험*/
-    background-color: #FF5900;
+    background: linear-gradient(-45deg, #E24500, #FF5900); /*두번째 색이 왼쪽 위, 첫번째 색이 오른쪽 아래로 그라데이션*/
     color: #ffffff;
 }
 .c_button{/*취약이웃, 재난위험 글자*/
