@@ -8,7 +8,7 @@
 &nbsp;&nbsp;&nbsp;-2. <strong>재난 위험 사진 신고</strong> 📌 현 위치 정보, webRTC 사진 전송 기능 및 재난 유형 사용 가능<br/>
 <br/>
 
-## 2. 🚩취약 이웃 위치 신고 (/loc_cam/:id/a)<br/>
+## 2. 🚩 취약 이웃 위치 신고 (/loc_cam/:id/a)<br/>
 <div align="center">
       <img src="https://user-images.githubusercontent.com/96722691/205235046-0e25a792-298c-47f9-b919-9f2c21db395d.png"  width="300" >
 </div>
@@ -17,7 +17,7 @@
 &nbsp;&nbsp;&nbsp;-2. webRTC 사진 전송 기능 가능<br/>
 &nbsp;&nbsp;&nbsp;-3. 서버로 위도, 경도, 위치 및 사진 전송<br/>
 
-## 3. 🚩재난 위험 사진 신고 (/call_cam/:id/b)<br/>
+## 3. 🚩 재난 위험 사진 신고 (/call_cam/:id/b)<br/>
 <div align="center">
       <img src="https://user-images.githubusercontent.com/96722691/205234069-b9a79c72-26a8-4f3d-a319-3ba479ae9436.png"  width="300" >
 </div>
@@ -27,6 +27,6 @@
 &nbsp;&nbsp;&nbsp;-3. 재난 유형 선택 가능<br/>
 &nbsp;&nbsp;&nbsp;-4. 서버로 위도, 경도, 위치 및 사진 전송<br/>
       
-## 4. 🚀서버로 전송 <br/>
+## 4. 🚀 서버로 전송 <br/>
 &nbsp;&nbsp;&nbsp;: 위도, 경도, 위치 및 사진 전송<br/>
 &nbsp;&nbsp;&nbsp;: 재난 위험 사진 신고의 경우 재난 유형 전송<br/>
