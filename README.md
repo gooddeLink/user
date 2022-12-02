@@ -1,6 +1,6 @@
-# user
+# ✨user
 
-## 1. ✨메인 (/:id)<br/>
+## 1. 메인 (/:id)<br/>
 <div align="center">
       <img src="https://user-images.githubusercontent.com/96722691/205233542-1217caa8-d3ae-444b-ac18-47785995518a.png"  width="300" >
 </div>
