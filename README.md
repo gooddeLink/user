@@ -3,6 +3,7 @@
 ## 1. 메인 (/:id)<br/>
 &nbsp;&nbsp;&nbsp;-1. 취약 이웃 위치 신고 -> 현 위치 정보, webRTC 사진 전송 기능 가능<br/>
 &nbsp;&nbsp;&nbsp;-2. 재난 위험 사진 신고 -> 현 위치 정보, webRTC 사진 전송 기능 및 재난 유형 사용 가능<br/>
+<img src="https://user-images.githubusercontent.com/101400650/205231365-8f0b0301-93b3-4f95-bde8-85bc14b8e0ea.png"  width="500" >
 <br/>
 
 ## 2. 취약 이웃 위치 신고 (/loc_cam/:id/a)<br/>
