@@ -17,7 +17,7 @@
       <img src="https://user-images.githubusercontent.com/96722691/205235046-0e25a792-298c-47f9-b919-9f2c21db395d.png"  width="300" >
 </div> <br />
 
-&nbsp;&nbsp;&nbsp; 💦위치가 올바르지 않을 경우 <br/><br/>
+&nbsp;&nbsp;&nbsp; 💦<strong>위치가 올바르지 않을 경우</strong> <br/><br/>
 &nbsp;&nbsp;&nbsp;1. 핀 위치 조정<br/>
 &nbsp;&nbsp;&nbsp;2. 주소 검색<br/>
 <div align="center">
