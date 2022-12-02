@@ -4,8 +4,8 @@
 <div align="center">
       <img src="https://user-images.githubusercontent.com/96722691/205233542-1217caa8-d3ae-444b-ac18-47785995518a.png"  width="300" >
 </div>
-&nbsp;&nbsp;&nbsp;-1. 취약 이웃 위치 신고 📌 현 위치 정보, webRTC 사진 전송 기능 가능<br/>
-&nbsp;&nbsp;&nbsp;-2. 재난 위험 사진 신고 📌 현 위치 정보, webRTC 사진 전송 기능 및 재난 유형 사용 가능<br/>
+&nbsp;&nbsp;&nbsp;-1. **취약 이웃 위치 신고** 📌 현 위치 정보, webRTC 사진 전송 기능 가능<br/>
+&nbsp;&nbsp;&nbsp;-2. **재난 위험 사진 신고** 📌 현 위치 정보, webRTC 사진 전송 기능 및 재난 유형 사용 가능<br/>
 <br/>
 
 ## 2. 🚩취약 이웃 위치 신고 (/loc_cam/:id/a)<br/>
