@@ -13,7 +13,7 @@
 &nbsp;&nbsp;&nbsp;-2. webRTC 사진 전송 기능 가능<br/>
 &nbsp;&nbsp;&nbsp;-3. 서버로 위도, 경도, 위치 및 사진 전송<br/>
 <div align="center">
-      <img src="https://user-images.githubusercontent.com/96722691/205233763-6c4148a6-f758-4440-8e5e-0fee1e29d548.png"  width="300" >
+      <img src="https://user-images.githubusercontent.com/96722691/205235046-0e25a792-298c-47f9-b919-9f2c21db395d.png"  width="300" >
 </div>
 
 ## 3. 재난 위험 사진 신고 (/call_cam/:id/b)<br/>
