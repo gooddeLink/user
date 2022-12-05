@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# ✨user
+&nbsp;&nbsp;&nbsp;&nbsp; https://u.goodde.kr/:id <br /><br />
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 1. 메인 (/:id)<br/>
+&nbsp;&nbsp;&nbsp;<strong>📌 취약 이웃 위치 신고</strong> : 취약이웃(극빈층, 우울증 환자가족 등)을 인지한 주민들이 현재 위치와 사연 메시지를 쉽게 등록 <br/>
+&nbsp;&nbsp;&nbsp;<strong>📌 재난 위험 사진 신고</strong> : 이웃 주변의 재난상황(수해, 산불 등)을 인지한 주민들이 사진과 긴급 상황 메시지를 쉽게 등록<br/>
+<div align="center">
+      <img src="https://user-images.githubusercontent.com/96722691/205233542-1217caa8-d3ae-444b-ac18-47785995518a.png"  width="300" >
+</div>
 
-## Available Scripts
+## 2. 🏴 취약 이웃 위치 신고 (/loc_cam/:id/a)<br/>
+&nbsp;&nbsp;&nbsp; ✔️현 위치 확인 후 오류 있을 경우 핀 선택 및 주소 입력 ➡️ ✔️불편 내용 접수 ➡️ 현장 사진 접수 ➡️ 등록하기 <br/><br/>
+&nbsp;&nbsp;&nbsp;1. <strong>현 위치 정보</strong> 확인<br/>
+&nbsp;&nbsp;&nbsp;2. webRTC <strong>사진 전송</strong> 기능<br/>
+&nbsp;&nbsp;&nbsp;3. 서버로 위도, 경도, 위치 및 사진 전송<br/>
+<div align="center">
+      <img src="https://user-images.githubusercontent.com/96722691/205235046-0e25a792-298c-47f9-b919-9f2c21db395d.png"  width="300" >
+</div> <br />
 
-In the project directory, you can run:
+&nbsp;&nbsp;&nbsp; 💦<strong>위치가 올바르지 않을 경우</strong> <br/>
+&nbsp;&nbsp;&nbsp;1. 핀 위치 조정<br/>
+&nbsp;&nbsp;&nbsp;2. 주소 검색 : 자동완성 기능 사용<br/>
+<div align="center">
+      <img src="https://user-images.githubusercontent.com/96722691/205240237-6ea9f95f-7818-4e8a-9a71-2d5d8622d0c6.png"  width="300" >
+</div>
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 3. 🚩 재난 위험 사진 신고 (/call_cam/:id/b)<br/>
+&nbsp;&nbsp;&nbsp; ✔️재난 유형 선택 ➡️ ✔️현 위치 확인 후 오류 있을 경우 핀 선택 및 주소 입력 ➡️ ✔️현장 사진 접수 ➡️ 불편 내용 접수  ➡️ 등록하기 <br/><br/>
+&nbsp;&nbsp;&nbsp;1. <strong>현 위치 정보</strong> 확인<br/>
+&nbsp;&nbsp;&nbsp;2. webRTC <strong>사진 전송</strong> 기능<br/>
+&nbsp;&nbsp;&nbsp;3. <strong>재난 유형</strong> 선택 ▶ 수해, 산불, 교통사고, 지진, 자연재난, 사회재난<br/>
+&nbsp;&nbsp;&nbsp;4. 서버로 위도, 경도, 위치 및 사진 전송<br/>
+<div align="center">
+      <img src="https://user-images.githubusercontent.com/96722691/205234069-b9a79c72-26a8-4f3d-a319-3ba479ae9436.png"  width="300" >
+</div>
+      
+## 4. 🚀 서버로 전송 <br/>
+&nbsp;&nbsp;&nbsp;: 위도, 경도, 위치 및 사진 전송<br/>
+&nbsp;&nbsp;&nbsp;: 재난 위험 사진 신고의 경우 재난 유형 전송<br/>

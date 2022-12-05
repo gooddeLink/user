@@ -322,8 +322,8 @@ function Home(){
         else styleSetSearchPic({display:'block'});
     }
 
-    function imgPost(){
-        axios.post(`${process.env.REACT_APP_ai}/${id}/locimgsubmit`, {//정보 전달할 페이지-ai
+    function imgPost(to){
+        axios.post(`${process.env.REACT_APP_ai}/${id}/${to}imgsubmit`, {//정보 전달할 페이지-ai
             img:latestDataUrl.current
         })
         .then((res)=>{//axios.post 성공하면
@@ -346,7 +346,9 @@ function Home(){
         }
         styleSetModal({display:'flex'});//가운데 오도록
 
+        let to;
         if(flag==='a'){
+            to = 'loc'
             axios.post(`${process.env.REACT_APP_goodde}/call_loc/${id}/submit`, {//정보 전달할 페이지-admin
                 text:latestMsg.current,//불편내용
                 lat:latestLat.current,
@@ -363,6 +365,7 @@ function Home(){
             });
         }
         else{
+            to = 'cam'
             axios.post(`${process.env.REACT_APP_goodde}/call_cam/${id}/submit`, {//정보 전달할 페이지-admin
                 type:latestType.current,//유형번호
                 text:latestMsg.current,//불편내용
@@ -379,8 +382,7 @@ function Home(){
                 return;
             });
         }
-
-        imgPost();
+        imgPost(to);
     }
 
 
