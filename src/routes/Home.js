@@ -276,6 +276,7 @@ function Home(){
 
                 resultMap.setCenter(result[0].geometry.location);//맵 중심좌표 설정
                 resultMap.setZoom(18);
+                latestMarker.current.setMap(null);//마커 하나만 뜨도록 기존것 없애주기
                 latestMarker.current=new google.maps.Marker({
                     map:resultMap,
                     position:result[0].geometry.location,
