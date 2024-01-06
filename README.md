@@ -1,5 +1,5 @@
 # ✨user
-&nbsp;&nbsp;&nbsp;&nbsp; https://u.goodde.kr/:id <br /><br />
+&nbsp;&nbsp;&nbsp;&nbsp; ~https://u.goodde.kr/:id~ <br /><br />
 
 ## 1. 메인 (/:id)<br/>
 &nbsp;&nbsp;&nbsp;<strong>📌 취약 이웃 위치 신고</strong> : 취약이웃(극빈층, 우울증 환자가족 등)을 인지한 주민들이 현재 위치와 사연 메시지를 쉽게 등록 <br/>
